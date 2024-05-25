@@ -1,6 +1,5 @@
 import 'package:fitness_app/application/info.dart';
-import 'package:fitness_app/application/workout-page.dart';
-import 'package:fitness_app/model/Workout.dart';
+import 'package:fitness_app/application/strength/strength-page.dart';
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
@@ -23,7 +22,7 @@ class MenuPage extends StatelessWidget {
             ),
             child: const Center(
               child: Text(
-                "Program",
+                "Programs",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -37,45 +36,19 @@ class MenuPage extends StatelessWidget {
       ),
       body: Container(
         decoration: const BoxDecoration(
-          color: Color(0xFF121212), // Dark mode background matching appBar
+          color: Color(0xFF121212),
         ),
         child: ListView(children: [
           ListTile(
             title: const Text(
-              "1 - Week One",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
+              "Strength",
+              style:
+                  TextStyle(color: Colors.white, fontSize: 30), // Bigger text
             ),
             onTap: () {
-              _gotToWorkout(context, Workout.weekOne());
+              _gotToFitnessProgram(context, "Strength");
             },
           ),
-          ListTile(
-            title: const Text(
-              "2 - Week Two",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekTwo());
-            },
-          ),
-          ListTile(
-            title: const Text(
-              "3 - Week Three",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekThree());
-            },
-          ),
-          ListTile(
-            title: const Text(
-              "4 - Week Four",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekFour());
-            },
-          )
         ]),
       ),
       bottomNavigationBar: Container(
@@ -124,10 +97,12 @@ class MenuPage extends StatelessWidget {
     );
   }
 
-  void _gotToWorkout(BuildContext context, List<Workout> workouts) {
-    Navigator.push(
+  void _gotToFitnessProgram(BuildContext context, String workout) {
+    if(workout == "Strength") {
+      Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => WorkoutPage(workouts: workouts)),
+      MaterialPageRoute(builder: (context) => StrengthPage()),
     );
+    }
   }
 }

@@ -38,7 +38,7 @@ class FitnessApp extends StatelessWidget {
             ),
             child: const Center(
               child: Text(
-                "Strength App",
+                "Fitness App",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,

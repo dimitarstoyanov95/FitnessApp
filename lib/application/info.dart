@@ -41,6 +41,7 @@ class InfoBar extends StatelessWidget {
             ),
           ),
           backgroundColor: Colors.transparent,
+          iconTheme: const IconThemeData(color: Colors.white)
         ),
       ),
       body: Container(
@@ -52,7 +53,7 @@ class InfoBar extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Overview",
                 style: TextStyle(
                   color: Colors.white,
@@ -60,16 +61,16 @@ class InfoBar extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 "Fitness App is designed to help you achieve fitness goals. Whether you are looking to build strength, improve endurance, or just stay active, our app is designed to offer a variety of workout programs tailored to your needs.",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 "Current Features",
                 style: TextStyle(
                   color: Colors.white,
@@ -77,16 +78,16 @@ class InfoBar extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 "- Russian Strength Program",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 "Upcoming Features",
                 style: TextStyle(
                   color: Colors.white,
@@ -94,46 +95,46 @@ class InfoBar extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
-              Text(
+              const SizedBox(height: 8),
+              const Text(
                 "- More Workout Programs",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
               ),
-              Text(
+              const Text(
                 "- Personal Profiles for every user",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
               ),
-              Text(
+              const Text(
                 "- Gender specific workout",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
               ),
-              Text(
+              const Text(
                 "Developed By:",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 28,
                 ),
               ),
-              Text(
+              const Text(
                 "Dimitar Stoyanov",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               InkWell(
                 onTap: _launchURL,
-                child: Text(
+                child: const Text(
                   "LinkedIn Profile",
                   style: TextStyle(
                     color: Colors.blue,

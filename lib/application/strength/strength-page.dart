@@ -1,11 +1,41 @@
+import 'dart:math';
+
 import 'package:fitness_app/application/info.dart';
 import 'package:fitness_app/application/menu.dart';
 import 'package:fitness_app/application/strength/workout-page.dart';
 import 'package:fitness_app/model/Workout.dart';
 import 'package:flutter/material.dart';
 
-class StrengthPage extends StatelessWidget {
-  const StrengthPage({super.key});
+class StrengthPage extends StatefulWidget {
+  const StrengthPage({Key? key}) : super(key: key);
+
+  @override
+  _StrengthPageState createState() => _StrengthPageState();
+}
+
+class _StrengthPageState extends State<StrengthPage> {
+  final List<String> motivationalTexts = [
+    "Embrace Your Strength!",
+    "Unleash Your Power!",
+    "Forge Your Glory!",
+    "Embrace the Pain!",
+    "Awaken the Titan!",
+    "Defy Gravity!",
+    "Pain is Temporary!"
+  ];
+
+  late String selectedMotivationalText;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedMotivationalText = _getRandomMotivationalText();
+  }
+
+  String _getRandomMotivationalText() {
+    final Random random = Random();
+    return motivationalTexts[random.nextInt(motivationalTexts.length)];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,62 +52,33 @@ class StrengthPage extends StatelessWidget {
             decoration: const BoxDecoration(
               color: Color(0xFF121212), // Dark mode background
             ),
-            child: const Center(
+            child: Center(
               child: Text(
-                "Strength Program",
-                style: TextStyle(
+                selectedMotivationalText,
+                style: const TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
           ),
           backgroundColor: Colors.transparent,
+          iconTheme: const IconThemeData(color: Colors.white),
         ),
       ),
       body: Container(
         decoration: const BoxDecoration(
           color: Color(0xFF121212), // Dark mode background matching appBar
         ),
-        child: ListView(children: [
-          ListTile(
-            title: const Text(
-              "1 - Week One",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekOne());
-            },
-          ),
-          ListTile(
-            title: const Text(
-              "2 - Week Two",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekTwo());
-            },
-          ),
-          ListTile(
-            title: const Text(
-              "3 - Week Three",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekThree());
-            },
-          ),
-          ListTile(
-            title: const Text(
-              "4 - Week Four",
-              style: TextStyle(color: Colors.white, fontSize: 30), // Bigger text
-            ),
-            onTap: () {
-              _gotToWorkout(context, Workout.weekFour());
-            },
-          )
-        ]),
+        child: ListView(
+          children: [
+            _buildWeekContainer("Week One", Workout.weekOne()),
+            _buildWeekContainer("Week Two", Workout.weekTwo()),
+            _buildWeekContainer("Week Three", Workout.weekThree()),
+            _buildWeekContainer("Week Four", Workout.weekFour()),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
@@ -121,6 +122,23 @@ class StrengthPage extends StatelessWidget {
             }
           },
         ),
+      ),
+    );
+  }
+
+  Widget _buildWeekContainer(String title, List<Workout> workouts) {
+    return Container(
+      height: 80,
+      color: const Color(0xFF1F1B24),
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      child: ListTile(
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.white, fontSize: 18), // Bigger text
+        ),
+        onTap: () {
+          _gotToWorkout(context, workouts);
+        },
       ),
     );
   }

@@ -41,7 +41,7 @@ class FitnessApp extends StatelessWidget {
                 "Fitness App",
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
+                  fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -68,7 +68,7 @@ class FitnessApp extends StatelessWidget {
       ),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
-          color: Color(0xFF1F1B24), // Secondary dark color
+          color: Color(0xFF1F1B24),
         ),
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,

@@ -1,48 +1,129 @@
-
 import 'package:fitness_app/model/Exercise.dart';
 
 class Workout {
   final String name;
-  final List<Exercise>? excersise;
+  final String dayOfWeek;
+  final List<Exercise>? exercise;
 
   Workout({
     required this.name,
-    required this.excersise
-    });
+    required this.dayOfWeek,
+    required this.exercise,
+  });
 
-  static Workout powerlifting() {
-    return Workout(
-      name: "Powerlifting",
-      excersise: [
-        Exercise(name: 'Squats', weight: 'Barbell', reps: '5', sets: '5'),
-        Exercise(name: 'Deadlifts', weight: 'Barbell', reps: '5', sets: '5'),
-        Exercise(name: 'Bench Press', weight: 'Barbell', reps: '5', sets: '5'),
-        Exercise(name: 'Pull-ups', weight: 'Bodyweight', reps: '8', sets: '4'),
-      ],
-    );
+  static List<Workout> weekOne() {
+    return [
+      Workout(
+        name: "Week One",
+        dayOfWeek: "Monday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Medium 1 - 75-85%', sets: '4', reps: '3'),
+          Exercise(name: 'Press', intensity: 'Hard 1 - 90-100%', sets: '3', reps: '1'),
+        ],
+      ),
+      Workout(
+        name: "Week One",
+        dayOfWeek: "Wednesday",
+        exercise: [
+          Exercise(name: 'Press', intensity: 'Medium 1 - 75-85%', sets: '4', reps: '3'),
+          Exercise(name: 'Deadlift', intensity: 'Light 1 - 60-65%', sets: '5', reps: '5'),
+        ],
+      ),
+      Workout(
+        name: "Week One",
+        dayOfWeek: "Friday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Hard 1 - 90-100%', sets: '3', reps: '1'),
+          Exercise(name: 'Press', intensity: 'Light 1 - 60-65%', sets: '5', reps: '5'),
+        ],
+      ),
+    ];
   }
 
-  static Workout bodybuilding() {
-    return Workout(
-      name: 'Bodybuilding',
-      excersise: [
-        Exercise(name: 'Bicep Curls', weight: 'Dumbbells', reps: '10', sets: '4'),
-        Exercise(name: 'Tricep Extensions', weight: 'Dumbbells', reps: '10', sets: '4'),
-        Exercise(name: 'Shoulder Press', weight: 'Dumbbells', reps: '10', sets: '4'),
-        Exercise(name: 'Leg Press', weight: 'Machine', reps: '12', sets: '4'),
-      ],
-    );
+  static List<Workout> weekTwo() {
+    return [
+      Workout(
+        name: "Week Two",
+        dayOfWeek: "Monday",
+        exercise: [
+          Exercise(name: 'Press', intensity: 'Hard 2 - 100-110%', sets: '3', reps: '1'),
+          Exercise(name: 'Deadlift', intensity: 'Medium 1 - 75-85%', sets: '4', reps: '3'),
+        ],
+      ),
+      Workout(
+        name: "Week Two",
+        dayOfWeek: "Wednesday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Light 1 - 60-65%', sets: '5', reps: '5'),
+          Exercise(name: 'Press', intensity: 'Medium 2 - 85-90%', sets: '4', reps: '2'),
+        ],
+      ),
+      Workout(
+        name: "Week Two",
+        dayOfWeek: "Friday",
+        exercise: [
+          Exercise(name: 'Press', intensity: 'Medium 2 - 85-90%', sets: '4', reps: '2'),
+          Exercise(name: 'Deadlift', intensity: 'Hard 1 - 90-100%', sets: '3', reps: '1'),
+        ],
+      ),
+    ];
   }
 
-  static Workout crossfit() {
-    return Workout(
-      name: 'Crossfit',
-      excersise: [
-        Exercise(name: 'Box Jumps', weight: 'Bodyweight', reps: '15', sets: '3'),
-        Exercise(name: 'Kettlebell Swings', weight: 'Kettlebell', reps: '20', sets: '3'),
-        Exercise(name: 'Burpees', weight: 'Bodyweight', reps: '10', sets: '5'),
-        Exercise(name: 'Wall Balls', weight: 'Medicine Ball', reps: '15', sets: '3'),
-      ],
-    );
+  static List<Workout> weekThree() {
+    return [
+      Workout(
+        name: "Week Three",
+        dayOfWeek: "Monday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Medium 2 - 85-90%', sets: '4', reps: '2'),
+          Exercise(name: 'Press', intensity: 'Hard 1 - 90-100%', sets: '3', reps: '1'),
+        ],
+      ),
+      Workout(
+        name: "Week Three",
+        dayOfWeek: "Wednesday",
+        exercise: [
+          Exercise(name: 'Press', intensity: 'Medium 1 - 75-85%', sets: '5', reps: '5'),
+          Exercise(name: 'Deadlift', intensity: 'Light 2 - 65-70%', sets: '5', reps: '4'),
+        ],
+      ),
+      Workout(
+        name: "Week Three",
+        dayOfWeek: "Friday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Hard 2 - 100-110%', sets: '3', reps: '1'),
+          Exercise(name: 'Deadlift', intensity: 'Light 1 - 60-65%', sets: '5', reps: '5'),
+        ],
+      ),
+    ];
+  }
+
+  static List<Workout> weekFour() {
+    return [
+      Workout(
+        name: "Week Four",
+        dayOfWeek: "Monday",
+        exercise: [
+          Exercise(name: 'Press', intensity: 'Hard 2 - 100-110%', sets: '3', reps: '1'),
+          Exercise(name: 'Deadlift', intensity: 'Medium 2 - 85-90%', sets: '4', reps: '2'),
+        ],
+      ),
+      Workout(
+        name: "Week Four",
+        dayOfWeek: "Wednesday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Light 2 - 65-70%', sets: '5', reps: '4'),
+          Exercise(name: 'Press', intensity: 'Medium 2 - 85-90%', sets: '4', reps: '2'),
+        ],
+      ),
+      Workout(
+        name: "Week Four",
+        dayOfWeek: "Friday",
+        exercise: [
+          Exercise(name: 'Squat', intensity: 'Medium 2 - 85-90%', sets: '4', reps: '2'),
+          Exercise(name: 'Deadlift', intensity: 'Hard 2 - 100-110%', sets: '3', reps: '1'),
+        ],
+      ),
+    ];
   }
 }

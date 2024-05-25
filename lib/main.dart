@@ -1,9 +1,11 @@
+import 'package:fitness_app/application/info.dart';
 import 'package:fitness_app/application/menu.dart';
 import 'package:flutter/material.dart';
 
 void main () {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FitnessApp()
+      home: FitnessApp(),
     );
   }
 }
@@ -22,33 +24,91 @@ class FitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("My Fitness App"),
-        backgroundColor: Colors.purpleAccent,
-        ),
-      body: Container(
-        decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("lib/assets/MainPage.png"),
-                  fit: BoxFit.fill)),
-        child: Center(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context, 
-                MaterialPageRoute(builder: (context) => MenuPage())
-                );
-            }, 
-            child: Text("Start Workout")
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100.0),
+        child: AppBar(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
             ),
           ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              color: Colors.black, // Dark mode background
+            ),
+            child: const Center(
+              child: Text(
+                "Strength App",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          backgroundColor: Colors.transparent,
+        ),
       ),
-      bottomNavigationBar: const BottomAppBar(
-        color:  Colors.purple,
-        child: Center(
-          child: Text("App Ino", style: TextStyle(color: Colors.white)),
+      body: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context, 
+            MaterialPageRoute(builder: (context) => MenuPage()),
+          );
+        },
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("lib/assets/MainPage.png"),
+              fit: BoxFit.fill,
+            ),
           ),
         ),
+      ),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          color: Color(0xFF1F1B24), // Secondary dark color
+        ),
+        child: BottomNavigationBar(
+          backgroundColor: Colors.transparent,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home, color: Colors.white),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search, color: Colors.white),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.more_vert, color: Colors.white),
+              label: '',
+            ),
+          ],
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MenuPage()),
+                );
+                break;
+              case 1:
+                // Search action
+                break;
+              case 2:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InfoBar()),
+                );
+                break;
+            }
+          },
+        ),
+      ),
     );
   }
 }
